@@ -36,6 +36,10 @@ export function createDecorator(
         : (target.constructor as VueConstructor)
     if (!Ctor.__d) {
       Ctor.__d = []
+      Ctor.__d.__n = Ctor.name
+    }else if(Ctor.__d.__n !== Ctor.name){
+      Ctor.__d = [].concat(Ctor.__d)
+      Ctor.__d.__n = Ctor.name
     }
     if (typeof index !== 'number') {
       index = undefined
